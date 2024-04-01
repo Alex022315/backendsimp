@@ -16,18 +16,12 @@ const cors = require('cors')
 // cosas que pasan en los mercheos 
 
 
-app.use(cors({}))
-
-app.use(function (req, res, next) {
-    res.setHeader('Access-Control-Allow-Origin', '*');
-    res.setHeader('Access-Control-Allow-Methods', '*');
-    res.setHeader("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-    next()
-})
+app.use(cors())
 
 app.use(bodyParser.json())
 
-const PUERTO = 3000
+const PUERTO = process.env.PORT;
+
 
 app.listen(PUERTO, () => {
     console.log(`Servidor corriendo en el puerto ${PUERTO} bien`);
